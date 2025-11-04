@@ -121,6 +121,9 @@ const TableSection = () => {
                     <th className="text-left p-4 text-sm font-semibold text-slate-600">
                         Date
                     </th>
+                    <th className="text-left p-4 text-sm font-semibold text-slate-600">
+                        Actions
+                    </th>
                 </tr>
                  </thead>
                 <tbody>
@@ -129,13 +132,8 @@ const TableSection = () => {
                        <tr key={order.id} className="border-b border-slate-200/50 dark:border-slate-700/50
                     hover:bg-slate-50/50 dark:hover:bg-slate-800/50 transition-colors">
                     <td className="p-4">
-                        <span className="text-sm font-medium text-blue">
+                        <span className="text-sm font-medium text-blue-600">
                             {order.id}
-                        </span>
-                    </td>
-                    <td className="p-4">
-                        <span className="text-sm text-slate-800 dark:text-white">
-                            {order.customer}
                         </span>
                     </td>
                     <td className="p-4">
@@ -149,10 +147,14 @@ const TableSection = () => {
                         </span>
                     </td>
                     <td className="p-4">
-                        <span className={`text-slate-400 dark:text-white font-medium text-xs px-3
-                            py-1 rounded-full ${getStatusColor(
+                        <span className={`font-medium text-xs px-3 py-1 rounded-full ${getStatusColor(
                                 order.status)}`}
                         >
+                            {order.status}
+                        </span>
+                    </td>
+                    <td className="p-4">
+                        <span className="text-sm text-slate-800 dark:text-white">
                             {order.date}
                         </span>
                     </td>
