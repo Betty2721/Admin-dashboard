@@ -37,7 +37,7 @@ const RevenueChart = () => {
       </div>
 
       <div className="h-80">
-        <ResponsiveContainer width="100%" height="100%">
+        <ResponsiveContainer width="100%" height={320}>
           <BarChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" opacity={0.3} />
             <XAxis dataKey="month" stroke="#64748b" fontSize={12} tickLine={false} axisLine={false} />

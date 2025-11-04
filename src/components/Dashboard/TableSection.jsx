@@ -124,11 +124,11 @@ const TableSection = () => {
                 </tr>
                  </thead>
                 <tbody>
-                  {recentOrders.map((order, index) =>{
+                  {recentOrders.map((order) =>{
                      return (
-                       <tr className="border-b border-slate-200/50 dark:border-slate-700/50
+                       <tr key={order.id} className="border-b border-slate-200/50 dark:border-slate-700/50
                     hover:bg-slate-50/50 dark:hover:bg-slate-800/50 transition-colors">
-                    <td className="p-4" key={index}>
+                    <td className="p-4">
                         <span className="text-sm font-medium text-blue">
                             {order.id}
                         </span>
@@ -190,43 +190,43 @@ const TableSection = () => {
 
            {/* Dynamic Data */}
            <div className="p-6 space-y-4">
-              {topProducts.map((product, index) =>{
-                return (
-                    <div className="flex items-center justify-between p-4 rounded-xl hover:bg-slate-50
-                dark:hover:bg-salte-800/50 transition-colors">
-                  <div className="flex-1">
-                     <h4 className="text-sm font-semibold text-slate-800 dark:text-white">
-                        {product.name}
-                     </h4>
-                     <p className="text-xs text-slate-500 dark:text-slate-400">
-                        {product.sales}
-                     </p>
+                            {topProducts.map((product) =>{
+                                return (
+                                        <div key={product.name} className="flex items-center justify-between p-4 rounded-xl hover:bg-slate-50
+                                dark:hover:bg-slate-800/50 transition-colors">
+                                    <div className="flex-1">
+                                         <h4 className="text-sm font-semibold text-slate-800 dark:text-white">
+                                                {product.name}
+                                         </h4>
+                                         <p className="text-xs text-slate-500 dark:text-slate-400">
+                                                {product.sales}
+                                         </p>
 
-                  </div>
-                  <div className="text-right">
-                    <p className="text-sm font-semibold text-slate-800 dark:text-white">
-                        {product.revenue}
-                    </p>
-                    <div className="flex items-center space-x-1">
-                       {product.trend === "up" ? (
-                         <TrendingUp className="w-3 h-3 text-emerald-500"/> 
-                       ) : (
-                         <TrendingDown className="w-3 h-3 text-red-500"/>
-                        )}
-                       <span 
-                         className={`text-xs font-medium ${
-                            product.trend === "up"
-                              ? "text-emerald-500"
-                              : "text-red-500"
-                         }`}
-                        >
-                        {product.change}
-                       </span>
-                    </div>
-                  </div>
-              </div>
-                );
-              })}
+                                    </div>
+                                    <div className="text-right">
+                                        <p className="text-sm font-semibold text-slate-800 dark:text-white">
+                                                {product.revenue}
+                                        </p>
+                                        <div className="flex items-center space-x-1">
+                                             {product.trend === "up" ? (
+                                                 <TrendingUp className="w-3 h-3 text-emerald-500"/> 
+                                             ) : (
+                                                 <TrendingDown className="w-3 h-3 text-red-500"/>
+                                                )}
+                                             <span 
+                                                 className={`text-xs font-medium ${
+                                                        product.trend === "up"
+                                                            ? "text-emerald-500"
+                                                            : "text-red-500"
+                                                 }`}
+                                                >
+                                                {product.change}
+                                             </span>
+                                        </div>
+                                    </div>
+                            </div>
+                                );
+                            })}
            </div>
         </div>
     </div>

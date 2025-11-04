@@ -82,7 +82,7 @@ const menuItems = [
   {
     id: "settings",
     icon: Settings,
-    label: "Setings",
+  label: "Settings",
   },
 ];
 
@@ -184,7 +184,7 @@ const Sidebar = ({collapsed, onToggle, CurrentPage, onPageChange}) => {
                 <div className="ml-8 mt-2 space-y-1">
                  {item.submenu.map((subitem) => {
                     return (
-                    <button className="w-full text-left p-2 text-sm text-slate-600
+                    <button key={subitem.id} className="w-full text-left p-2 text-sm text-slate-600
                       dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200
                       hover:bg-slate-100 dark:hover:bg-slate-800/50 rounded-lg
                       transition-all">

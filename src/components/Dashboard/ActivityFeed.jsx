@@ -67,15 +67,15 @@ const ActivityFeed = () => {
               Recent System Activities
             </p>
         </div>
-        <button className="text-blue- hover:text-blue-700 text-sm font-medium">
-            View All
-        </button>
+    <button className="text-blue-600 hover:text-blue-700 text-sm font-medium">
+      View All
+    </button>
       </div>
       <div className="p-6">
         <div className="space-y-4">
-          {activities.map((activity, index) => {
+          {activities.map((activity) => {
             return (
-                <div className="flex items-start space-x-4 p-3 rounded-xl hover:bg-slate-50
+                <div key={activity.id} className="flex items-start space-x-4 p-3 rounded-xl hover:bg-slate-50
             dark:hover:bg-slate-800/50 transition-colors">
             <div className={`p-2 rounded-lg ${activity.bgColor}`}>
                 <activity.icon className={`w-4 h-4 ${activity.color}`} />
@@ -87,7 +87,7 @@ const ActivityFeed = () => {
                 <p className="text-sm text-slate-600 dark:text-slate-400 truncate">
                     {activity.description}
                 </p>
-                <div className="flex items-center-safe space-x-1 mt-1">
+                <div className="flex items-center space-x-1 mt-1">
                     <Clock className="w-3 h-3 text-slate-400"/>
                     <span className="text-xs text-slate-500 dark:text-slate-400">
                         {activity.time}

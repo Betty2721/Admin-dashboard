@@ -12,7 +12,7 @@ const SalesChart = () => {
     <div className="bg-white dark:bg-slate-900 backdrop-blur-xl rounded-b-2xl p-6 border
      border-slate-200/50 dark:border-slate-700/50">
        <div className="mb-6">
-         <h3 className="text-lg- font-bold text-slate-800 dark:text-white">
+         <h3 className="text-lg font-bold text-slate-800 dark:text-white">
             Sales by Category
          </h3>
          <p className="text-sm text-slate-500 dark:text-slate-400">
@@ -20,8 +20,8 @@ const SalesChart = () => {
          </p>
        </div>
 
-       <div className="h-48">
-        <ResponsiveContainer width="100%" height="100%">
+    <div className="h-48">
+     <ResponsiveContainer width="100%" height={200}>
              <PieChart>
                 <Pie 
                   data={data}
@@ -33,12 +33,12 @@ const SalesChart = () => {
                   dataKey="value"
                 >
                   {data.map((entry, index) => (
-                    <Cell key={`cell-$(index)`} fill={entry.color} />
+                    <Cell key={`cell-${index}`} fill={entry.color} />
                   ))}
                   </Pie>
                   <Tooltip
                      contentStyle= {{
-                     backgroundcolor: "rgba(255, 255, 255, 0.95)",
+                     backgroundColor: "rgba(255, 255, 255, 0.95)",
                      border: "none",
                      borderRadius: "12px",
                      boxShadow: "0 10px 40px rgba(0, 0, 0, 0.1)",
@@ -49,15 +49,15 @@ const SalesChart = () => {
        </div>
 
        <div className="space-y-3">
-          {data.map((item, index) => {
+          {data.map((item) => {
             return (
-              <div className="flex items-center justify-between" key={index}>
-                <div className="flex itme-sce space-x-3">
+              <div className="flex items-center justify-between" key={item.name}>
+                <div className="flex items-center space-x-3">
                    <div 
                      className="w-3 h-3 rounded-full" 
                      style={{ backgroundColor: item.color }}
                    />
-                      <span className="text-sm text-salte-600 dark:text-salte-400">
+                      <span className="text-sm text-slate-600 dark:text-slate-400">
                         {item.name}
                       </span>
                 </div>
